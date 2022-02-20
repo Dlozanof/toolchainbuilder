@@ -19,7 +19,7 @@ load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 
 git_repository(
     name = "toolchain_builder",
-    commit = "cd16c2304028791e0b11afac508f9e3154d09209", # Put the commit of interest
+    commit = "ba994c9c064c26cc2e55d6388be277a1582c56df", # Put the commit of interest
     remote = "https://github.com/Dlozanof/toolchainbuilder.git",
 )
 
@@ -48,9 +48,9 @@ If you want to check everything is ok, the following one liner will automaticall
 
 wget version:
 ```
-sh -c "$(wget https://raw.githubusercontent.com/Dlozanof/toolchainbuilder/main/validate_repo.sh -O -)"
+sh -c "$(wget https://raw.githubusercontent.com/Dlozanof/toolchainbuilder/master/validate_repo.sh -O -)"
 ```
 curl version
 ```
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/Dlozanof/toolchainbuilder/main/validate_repo.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/Dlozanof/toolchainbuilder/master/validate_repo.sh)"
 ```
