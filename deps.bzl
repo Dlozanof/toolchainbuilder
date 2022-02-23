@@ -1,6 +1,6 @@
 
 def _toolchain_native_gcc_impl(ctx):
-    ctx.report_progress("Getting files")
+    ctx.report_progress("Generating toolchain")
 
     ctx.template("setup.sh", ctx.attr._setup_tpl)
     ctx.template("Dockerfile", ctx.attr._dockerfile)
