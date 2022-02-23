@@ -1,0 +1,36 @@
+package(default_visibility = ["//visibility:public"])
+load(":cc_toolchain_gcc_native_config.bzl", "cc_toolchain_gcc_native_config")
+
+
+# Common
+filegroup(name = "empty")
+
+# Native GCC toolchain
+cc_toolchain_suite(
+    name = "gcc_suite",
+    # Pairs CPU <-> Toolchain names
+    toolchains = {
+        "k8": ":k8_toolchain_native_gcc",
+    },
+)
+
+cc_toolchain_gcc_native_config(name = "k8_toolchain_gcc_native_config")
+
+## All files are available in every step
+filegroup(
+    name = "all_files",
+    srcs = glob(["toolchainroot/**"]),
+)
+
+cc_toolchain(
+    name = "k8_toolchain_native_gcc",
+    toolchain_identifier = "k8-toolchain-native-gcc",
+    toolchain_config = ":k8_toolchain_gcc_native_config",
+    all_files = ":all_files",
+    compiler_files = ":all_files",
+    dwp_files = ":empty",
+    linker_files = ":compiler_files",
+    objcopy_files = ":empty",
+    strip_files = ":empty",
+    supports_param_files = 0,
+)

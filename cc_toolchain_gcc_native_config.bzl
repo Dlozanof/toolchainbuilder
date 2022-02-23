@@ -97,7 +97,7 @@ def _impl(ctx):
             "toolchainroot/lib/gcc/x86_64-pc-linux-gnu/11.2.0/include",
             "toolchainroot/lib/gcc/x86_64-pc-linux-gnu/11.2.0/include-fixed",
         ],
-        toolchain_identifier = "k8-toolchain",
+        toolchain_identifier = "k8-toolchain-native-gcc",
         host_system_name = "local",
         target_system_name = "local",
         target_cpu = "k8",
@@ -108,7 +108,7 @@ def _impl(ctx):
         tool_paths = tool_paths,
 )
 
-cc_toolchain_config = rule(
+cc_toolchain_gcc_native_config = rule(
     implementation = _impl,
     attrs = {},
     provides = [CcToolchainConfigInfo],

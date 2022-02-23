@@ -17,17 +17,17 @@ load(\"@bazel_tools//tools/build_defs/repo:git.bzl\", \"git_repository\")
 
 git_repository(
     name = \"toolchain_builder\",
-    commit = \"ba994c9c064c26cc2e55d6388be277a1582c56df\", # Put the commit of interest
+    commit = \"3ddcccf53d1742a22a72b199fcd83e3f23a387c2\", # Put the commit of interest
     remote = \"https://github.com/Dlozanof/toolchainbuilder.git\",
 )
 
-# Load the build_toolchain() rule from toolchain_builder, previously obtained
-load(\"@toolchain_builder//:deps.bzl\", \"build_toolchain\")
+# Load the toolchain_native_gcc() rule from toolchain_builder, previously obtained
+load(\"@toolchain_builder//:deps.bzl\", \"toolchain_native_gcc\")
 
 # Create the toolchain, in the future more parameters will be available
-build_toolchain(
+toolchain_native_gcc(
     name = \"gcc_toolchain\",
-    compiler = \"gcc\",
+    version = \"11.2.0\",
 )
 """ > WORKSPACE
 

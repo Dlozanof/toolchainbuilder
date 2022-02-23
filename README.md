@@ -23,11 +23,11 @@ git_repository(
     remote = "https://github.com/Dlozanof/toolchainbuilder.git",
 )
 
-# Load the build_toolchain() rule from toolchain_builder, previously obtained
-load("@toolchain_builder//:deps.bzl", "build_toolchain")
+# Load the toolchain_native_gcc() rule from toolchain_builder, previously obtained
+load("@toolchain_builder//:deps.bzl", "toolchain_native_gcc")
 
 # Create the toolchain, in the future more parameters will be available
-build_toolchain(
+toolchain_native_gcc(
     name = "gcc_toolchain",
     compiler = "gcc",
 )
