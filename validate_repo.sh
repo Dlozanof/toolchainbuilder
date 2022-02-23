@@ -17,7 +17,7 @@ load(\"@bazel_tools//tools/build_defs/repo:git.bzl\", \"git_repository\")
 
 git_repository(
     name = \"toolchain_builder\",
-    commit = \"5b006112fdd10cfda79b574136f23bdd972fcfa3\", # Put the commit of interest
+    commit = \"e1ebc990e3dc27d29a87cb7b3ef4a3eb2f9a1991\", # Put the commit of interest
     remote = \"https://github.com/Dlozanof/toolchainbuilder.git\",
 )
 
